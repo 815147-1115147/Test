@@ -23,6 +23,11 @@ typedef enum {
     BL_WHEEL = 3
 } wheel_id_t;
 
+#define GRIPPER_MOTOR_CTRL_EID        0x1FF
+typedef enum {
+    GRIPPER = 4
+} gripper_id_t;
+
 typedef struct {
     uint16_t angle_rotor_raw;
     int16_t speed_rpm;

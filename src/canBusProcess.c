@@ -58,6 +58,9 @@ static void can_processEncoderMessage(const CANRxFrame* const rxmsg)
 {
     switch(rxmsg->SID)  //why use SID  but the define on the top is
     {
+        case GRIPPER_MOTOR_CTRL_EID:
+            can_processEncoder(&_encoder[GRIPPER], rxmsg);
+            
         case CHASSIS_MOTOR_FL_EID:
             can_processEncoder(&_encoder[FL_WHEEL], rxmsg);
             break;
@@ -73,8 +76,6 @@ static void can_processEncoderMessage(const CANRxFrame* const rxmsg)
         case CHASSIS_MOTOR_BL_EID:
             can_processEncoder(&_encoder[BL_WHEEL], rxmsg);
             break;
-
-
 
         default:break;
     }
